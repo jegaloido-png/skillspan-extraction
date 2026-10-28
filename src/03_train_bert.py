@@ -61,7 +61,7 @@ def encode(rows, tok, key, max_len):
         for w in word_ids:
             labels.append(-100 if (w is None or w == prev) else L2I[r[key][w]])
             prev = w
-        if max(w for w in word_ids if w is not None) + 1 < len(r["tokens"]):
+        if max((w for w in word_ids if w is not None), default=-1) + 1 < len(r["tokens"]):
             truncated += 1
         feats.append({"input_ids": enc["input_ids"][i], "attention_mask": enc["attention_mask"][i],
                       "labels": labels, "word_ids": word_ids, "n_words": len(r["tokens"])})
