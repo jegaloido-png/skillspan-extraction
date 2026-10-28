@@ -1,0 +1,13 @@
+system,layer,source,case,min_precision,dict_size,n_gold,n_pred,tp_exact,exact_p,exact_r,exact_f1,partial_p,partial_r,partial_f1
+dictionary_tuned,skill,all,cased,0.1,1922,1091,448,124,0.2768,0.1137,0.1611,0.5045,0.2044,0.2909
+dictionary_tuned,skill,house,cased,0.1,1922,651,237,58,0.2447,0.0891,0.1306,0.4979,0.172,0.2557
+dictionary_tuned,skill,tech,cased,0.1,1922,440,211,66,0.3128,0.15,0.2028,0.5118,0.2523,0.338
+dictionary_pure,skill,all,cased,0.0,1976,1091,1526,158,0.1035,0.1448,0.1207,0.3434,0.4363,0.3843
+dictionary_pure,skill,house,cased,0.0,1976,651,841,81,0.0963,0.1244,0.1086,0.3555,0.4055,0.3789
+dictionary_pure,skill,tech,cased,0.0,1976,440,685,77,0.1124,0.175,0.1369,0.3285,0.4818,0.3906
+dictionary_tuned,knowledge,all,lower,0.2,1709,1174,1030,560,0.5437,0.477,0.5082,0.6534,0.575,0.6117
+dictionary_tuned,knowledge,house,lower,0.2,1709,368,235,101,0.4298,0.2745,0.335,0.5362,0.3397,0.4159
+dictionary_tuned,knowledge,tech,lower,0.2,1709,806,795,459,0.5774,0.5695,0.5734,0.6881,0.6824,0.6852
+dictionary_pure,knowledge,all,lower,0.0,1831,1174,4949,635,0.1283,0.5409,0.2074,0.1869,0.7436,0.2987
+dictionary_pure,knowledge,house,lower,0.0,1831,368,2404,133,0.0553,0.3614,0.096,0.1019,0.6033,0.1744
+dictionary_pure,knowledge,tech,lower,0.0,1831,806,2545,502,0.1972,0.6228,0.2996,0.2672,0.8077,0.4015

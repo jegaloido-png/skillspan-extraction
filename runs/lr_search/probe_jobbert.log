@@ -1,0 +1,3 @@
+[done] jobbert_skill_lr7e-05_seed3477689: best epoch 10, dev exact F1 0.5597, 250.3s
+[done] jobbert_knowledge_lr7e-05_seed3477689: best epoch 5, dev exact F1 0.6106, 191.8s
+ALL_DONE_jobbert

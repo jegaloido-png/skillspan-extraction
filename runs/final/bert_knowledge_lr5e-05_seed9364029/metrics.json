@@ -1,0 +1,183 @@
+{
+ "command": "python src/03_train_bert.py --model bert --layer knowledge --lr 5e-5 --seed 9364029 --epochs 10 --predict_test --out_dir runs/final",
+ "config": {
+  "model": "bert",
+  "layer": "knowledge",
+  "lr": 5e-05,
+  "seed": 9364029,
+  "epochs": 10,
+  "patience": 3,
+  "batch_size": 16,
+  "max_len": 256,
+  "warmup": 0.1,
+  "weight_decay": 0.01,
+  "max_train": null,
+  "max_dev": null,
+  "predict_test": true,
+  "no_amp": false,
+  "out_dir": "runs/final",
+  "force": false
+ },
+ "hf_model": "google-bert/bert-base-cased",
+ "model_commit": null,
+ "versions": {
+  "python": "3.12.3",
+  "torch": "2.8.0+cu128",
+  "transformers": "5.21.0",
+  "numpy": "2.1.2"
+ },
+ "device": "NVIDIA GeForce RTX 4090",
+ "amp": "torch.bfloat16",
+ "time": "2026-10-28 19:12:15",
+ "seconds": 251.4,
+ "truncated_sentences": {
+  "train": 35,
+  "dev": 6
+ },
+ "n_train": 4800,
+ "n_dev": 3174,
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.214,
+   "dev_exact_f1": 0.4499,
+   "dev_partial_f1": 0.6609,
+   "seconds": 27.9
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.0747,
+   "dev_exact_f1": 0.5185,
+   "dev_partial_f1": 0.73,
+   "seconds": 51.1
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.0353,
+   "dev_exact_f1": 0.5714,
+   "dev_partial_f1": 0.7805,
+   "seconds": 76.3
+  },
+  {
+   "epoch": 4,
+   "train_loss": 0.0193,
+   "dev_exact_f1": 0.5718,
+   "dev_partial_f1": 0.7716,
+   "seconds": 101.6
+  },
+  {
+   "epoch": 5,
+   "train_loss": 0.0102,
+   "dev_exact_f1": 0.5875,
+   "dev_partial_f1": 0.7807,
+   "seconds": 125.8
+  },
+  {
+   "epoch": 6,
+   "train_loss": 0.006,
+   "dev_exact_f1": 0.5743,
+   "dev_partial_f1": 0.7823,
+   "seconds": 150.2
+  },
+  {
+   "epoch": 7,
+   "train_loss": 0.0037,
+   "dev_exact_f1": 0.591,
+   "dev_partial_f1": 0.7801,
+   "seconds": 174.4
+  },
+  {
+   "epoch": 8,
+   "train_loss": 0.0018,
+   "dev_exact_f1": 0.5907,
+   "dev_partial_f1": 0.7776,
+   "seconds": 199.2
+  },
+  {
+   "epoch": 9,
+   "train_loss": 0.0012,
+   "dev_exact_f1": 0.5832,
+   "dev_partial_f1": 0.785,
+   "seconds": 223.6
+  },
+  {
+   "epoch": 10,
+   "train_loss": 0.0009,
+   "dev_exact_f1": 0.5804,
+   "dev_partial_f1": 0.7881,
+   "seconds": 248.0
+  }
+ ],
+ "best_epoch": 7,
+ "dev": {
+  "all": {
+   "n_gold": 1093,
+   "n_pred": 1340,
+   "tp_exact": 719,
+   "exact_p": 0.5365671641791044,
+   "exact_r": 0.6578225068618482,
+   "exact_f1": 0.5910398684751336,
+   "partial_p": 0.7156716417910448,
+   "partial_r": 0.8572735590118938,
+   "partial_f1": 0.7800988554832151
+  },
+  "house": {
+   "n_gold": 287,
+   "n_pred": 386,
+   "tp_exact": 176,
+   "exact_p": 0.45595854922279794,
+   "exact_r": 0.6132404181184669,
+   "exact_f1": 0.5230312035661218,
+   "partial_p": 0.6217616580310881,
+   "partial_r": 0.7909407665505227,
+   "partial_f1": 0.6962211345541911
+  },
+  "tech": {
+   "n_gold": 806,
+   "n_pred": 954,
+   "tp_exact": 543,
+   "exact_p": 0.5691823899371069,
+   "exact_r": 0.673697270471464,
+   "exact_f1": 0.6170454545454546,
+   "partial_p": 0.7536687631027253,
+   "partial_r": 0.8808933002481389,
+   "partial_f1": 0.8123298330593688
+  }
+ },
+ "test": {
+  "all": {
+   "n_gold": 1174,
+   "n_pred": 1362,
+   "tp_exact": 822,
+   "exact_p": 0.6035242290748899,
+   "exact_r": 0.7001703577512777,
+   "exact_f1": 0.6482649842271294,
+   "partial_p": 0.76431718061674,
+   "partial_r": 0.8807495741056218,
+   "partial_f1": 0.818413027164256
+  },
+  "house": {
+   "n_gold": 368,
+   "n_pred": 475,
+   "tp_exact": 234,
+   "exact_p": 0.4926315789473684,
+   "exact_r": 0.6358695652173914,
+   "exact_f1": 0.5551601423487545,
+   "partial_p": 0.6610526315789473,
+   "partial_r": 0.8559782608695652,
+   "partial_f1": 0.7459922994829868
+  },
+  "tech": {
+   "n_gold": 806,
+   "n_pred": 887,
+   "tp_exact": 588,
+   "exact_p": 0.6629086809470124,
+   "exact_r": 0.7295285359801489,
+   "exact_f1": 0.6946249261665682,
+   "partial_p": 0.8196166854565953,
+   "partial_r": 0.892059553349876,
+   "partial_f1": 0.8543051282365584
+  }
+ },
+ "truncated_sentences_test": 0
+}

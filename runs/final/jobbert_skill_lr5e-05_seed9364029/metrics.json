@@ -1,0 +1,183 @@
+{
+ "command": "python src/03_train_bert.py --model jobbert --layer skill --lr 5e-5 --seed 9364029 --epochs 10 --predict_test --out_dir runs/final",
+ "config": {
+  "model": "jobbert",
+  "layer": "skill",
+  "lr": 5e-05,
+  "seed": 9364029,
+  "epochs": 10,
+  "patience": 3,
+  "batch_size": 16,
+  "max_len": 256,
+  "warmup": 0.1,
+  "weight_decay": 0.01,
+  "max_train": null,
+  "max_dev": null,
+  "predict_test": true,
+  "no_amp": false,
+  "out_dir": "runs/final",
+  "force": false
+ },
+ "hf_model": "jjzha/jobbert-base-cased",
+ "model_commit": null,
+ "versions": {
+  "python": "3.12.3",
+  "torch": "2.8.0+cu128",
+  "transformers": "5.21.0",
+  "numpy": "2.1.2"
+ },
+ "device": "NVIDIA GeForce RTX 4090",
+ "amp": "torch.bfloat16",
+ "time": "2026-10-28 19:08:49",
+ "seconds": 240.5,
+ "truncated_sentences": {
+  "train": 35,
+  "dev": 6
+ },
+ "n_train": 4800,
+ "n_dev": 3174,
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.3075,
+   "dev_exact_f1": 0.3963,
+   "dev_partial_f1": 0.7784,
+   "seconds": 26.5
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.1026,
+   "dev_exact_f1": 0.461,
+   "dev_partial_f1": 0.7915,
+   "seconds": 49.3
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.0475,
+   "dev_exact_f1": 0.4925,
+   "dev_partial_f1": 0.7896,
+   "seconds": 73.9
+  },
+  {
+   "epoch": 4,
+   "train_loss": 0.0243,
+   "dev_exact_f1": 0.521,
+   "dev_partial_f1": 0.7871,
+   "seconds": 95.9
+  },
+  {
+   "epoch": 5,
+   "train_loss": 0.0138,
+   "dev_exact_f1": 0.5333,
+   "dev_partial_f1": 0.8004,
+   "seconds": 117.1
+  },
+  {
+   "epoch": 6,
+   "train_loss": 0.007,
+   "dev_exact_f1": 0.5348,
+   "dev_partial_f1": 0.8015,
+   "seconds": 141.8
+  },
+  {
+   "epoch": 7,
+   "train_loss": 0.0036,
+   "dev_exact_f1": 0.5255,
+   "dev_partial_f1": 0.804,
+   "seconds": 165.9
+  },
+  {
+   "epoch": 8,
+   "train_loss": 0.0026,
+   "dev_exact_f1": 0.5311,
+   "dev_partial_f1": 0.8004,
+   "seconds": 190.0
+  },
+  {
+   "epoch": 9,
+   "train_loss": 0.0015,
+   "dev_exact_f1": 0.5457,
+   "dev_partial_f1": 0.8053,
+   "seconds": 212.7
+  },
+  {
+   "epoch": 10,
+   "train_loss": 0.0009,
+   "dev_exact_f1": 0.5459,
+   "dev_partial_f1": 0.8041,
+   "seconds": 237.3
+  }
+ ],
+ "best_epoch": 10,
+ "dev": {
+  "all": {
+   "n_gold": 1070,
+   "n_pred": 1154,
+   "tp_exact": 607,
+   "exact_p": 0.5259965337954939,
+   "exact_r": 0.5672897196261683,
+   "exact_f1": 0.545863309352518,
+   "partial_p": 0.8006932409012132,
+   "partial_r": 0.8074766355140187,
+   "partial_f1": 0.8040706317456097
+  },
+  "house": {
+   "n_gold": 525,
+   "n_pred": 585,
+   "tp_exact": 300,
+   "exact_p": 0.5128205128205128,
+   "exact_r": 0.5714285714285714,
+   "exact_f1": 0.5405405405405405,
+   "partial_p": 0.8085470085470086,
+   "partial_r": 0.8285714285714286,
+   "partial_f1": 0.8184367541766111
+  },
+  "tech": {
+   "n_gold": 545,
+   "n_pred": 569,
+   "tp_exact": 307,
+   "exact_p": 0.539543057996485,
+   "exact_r": 0.563302752293578,
+   "exact_f1": 0.5511669658886894,
+   "partial_p": 0.7926186291739895,
+   "partial_r": 0.7871559633027523,
+   "partial_f1": 0.789877851625651
+  }
+ },
+ "test": {
+  "all": {
+   "n_gold": 1091,
+   "n_pred": 1136,
+   "tp_exact": 575,
+   "exact_p": 0.5061619718309859,
+   "exact_r": 0.5270394133822182,
+   "exact_f1": 0.5163897620116749,
+   "partial_p": 0.7860915492957746,
+   "partial_r": 0.8038496791934006,
+   "partial_f1": 0.7948714435419822
+  },
+  "house": {
+   "n_gold": 651,
+   "n_pred": 673,
+   "tp_exact": 346,
+   "exact_p": 0.5141158989598811,
+   "exact_r": 0.5314900153609831,
+   "exact_f1": 0.5226586102719034,
+   "partial_p": 0.8172362555720654,
+   "partial_r": 0.8125960061443932,
+   "partial_f1": 0.8149095252966458
+  },
+  "tech": {
+   "n_gold": 440,
+   "n_pred": 463,
+   "tp_exact": 229,
+   "exact_p": 0.4946004319654428,
+   "exact_r": 0.5204545454545455,
+   "exact_f1": 0.5071982281284608,
+   "partial_p": 0.7408207343412527,
+   "partial_r": 0.7909090909090909,
+   "partial_f1": 0.7650459550576202
+  }
+ },
+ "truncated_sentences_test": 0
+}

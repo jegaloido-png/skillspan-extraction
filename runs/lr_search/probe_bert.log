@@ -1,0 +1,3 @@
+[done] bert_skill_lr7e-05_seed3477689: best epoch 8, dev exact F1 0.5143, 245.2s
+[done] bert_knowledge_lr7e-05_seed3477689: best epoch 4, dev exact F1 0.5903, 169.8s
+ALL_DONE_bert

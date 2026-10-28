@@ -1,0 +1,147 @@
+{
+ "command": "python src/03_train_bert.py --model jobbert --layer skill --lr 7e-5 --seed 3477689 --out_dir runs/lr_search",
+ "config": {
+  "model": "jobbert",
+  "layer": "skill",
+  "lr": 7e-05,
+  "seed": 3477689,
+  "epochs": 10,
+  "patience": 3,
+  "batch_size": 16,
+  "max_len": 256,
+  "warmup": 0.1,
+  "weight_decay": 0.01,
+  "max_train": null,
+  "max_dev": null,
+  "predict_test": false,
+  "no_amp": false,
+  "out_dir": "runs/lr_search",
+  "force": false
+ },
+ "hf_model": "jjzha/jobbert-base-cased",
+ "model_commit": null,
+ "versions": {
+  "python": "3.12.3",
+  "torch": "2.8.0+cu128",
+  "transformers": "5.21.0",
+  "numpy": "2.1.2"
+ },
+ "device": "NVIDIA GeForce RTX 4090",
+ "amp": "torch.bfloat16",
+ "time": "2026-10-28 18:29:57",
+ "seconds": 250.3,
+ "truncated_sentences": {
+  "train": 35,
+  "dev": 6
+ },
+ "n_train": 4800,
+ "n_dev": 3174,
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.2724,
+   "dev_exact_f1": 0.4495,
+   "dev_partial_f1": 0.7913,
+   "seconds": 32.7
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.1021,
+   "dev_exact_f1": 0.4994,
+   "dev_partial_f1": 0.7947,
+   "seconds": 58.8
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.0516,
+   "dev_exact_f1": 0.4998,
+   "dev_partial_f1": 0.7955,
+   "seconds": 83.8
+  },
+  {
+   "epoch": 4,
+   "train_loss": 0.0254,
+   "dev_exact_f1": 0.5375,
+   "dev_partial_f1": 0.8148,
+   "seconds": 108.4
+  },
+  {
+   "epoch": 5,
+   "train_loss": 0.0142,
+   "dev_exact_f1": 0.5276,
+   "dev_partial_f1": 0.8065,
+   "seconds": 133.2
+  },
+  {
+   "epoch": 6,
+   "train_loss": 0.0082,
+   "dev_exact_f1": 0.5473,
+   "dev_partial_f1": 0.8174,
+   "seconds": 157.5
+  },
+  {
+   "epoch": 7,
+   "train_loss": 0.0039,
+   "dev_exact_f1": 0.5332,
+   "dev_partial_f1": 0.8088,
+   "seconds": 179.0
+  },
+  {
+   "epoch": 8,
+   "train_loss": 0.0028,
+   "dev_exact_f1": 0.5524,
+   "dev_partial_f1": 0.8121,
+   "seconds": 202.6
+  },
+  {
+   "epoch": 9,
+   "train_loss": 0.0015,
+   "dev_exact_f1": 0.5544,
+   "dev_partial_f1": 0.8146,
+   "seconds": 227.2
+  },
+  {
+   "epoch": 10,
+   "train_loss": 0.0009,
+   "dev_exact_f1": 0.5597,
+   "dev_partial_f1": 0.8134,
+   "seconds": 250.1
+  }
+ ],
+ "best_epoch": 10,
+ "dev": {
+  "all": {
+   "n_gold": 1070,
+   "n_pred": 1142,
+   "tp_exact": 619,
+   "exact_p": 0.542031523642732,
+   "exact_r": 0.5785046728971963,
+   "exact_f1": 0.5596745027124774,
+   "partial_p": 0.8108581436077058,
+   "partial_r": 0.8158878504672897,
+   "partial_f1": 0.8133652214071333
+  },
+  "house": {
+   "n_gold": 525,
+   "n_pred": 571,
+   "tp_exact": 306,
+   "exact_p": 0.5359019264448336,
+   "exact_r": 0.5828571428571429,
+   "exact_f1": 0.5583941605839416,
+   "partial_p": 0.8038528896672504,
+   "partial_r": 0.8304761904761905,
+   "partial_f1": 0.8169476926342689
+  },
+  "tech": {
+   "n_gold": 545,
+   "n_pred": 571,
+   "tp_exact": 313,
+   "exact_p": 0.5481611208406305,
+   "exact_r": 0.5743119266055046,
+   "exact_f1": 0.5609318996415771,
+   "partial_p": 0.8178633975481612,
+   "partial_r": 0.8018348623853211,
+   "partial_f1": 0.8097698207689042
+  }
+ }
+}

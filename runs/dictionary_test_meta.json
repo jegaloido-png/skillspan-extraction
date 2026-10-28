@@ -1,0 +1,6 @@
+{
+ "command": "python src/02_dictionary_baseline.py --test",
+ "time": "2026-10-28 19:26:25",
+ "seconds": 2.6,
+ "settings_from": "results/dictionary_dev.csv (dev exact F1)"
+}

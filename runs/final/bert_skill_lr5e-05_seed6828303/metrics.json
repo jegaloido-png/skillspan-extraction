@@ -1,0 +1,162 @@
+{
+ "command": "python src/03_train_bert.py --model bert --layer skill --lr 5e-5 --seed 6828303 --epochs 10 --predict_test --out_dir runs/final",
+ "config": {
+  "model": "bert",
+  "layer": "skill",
+  "lr": 5e-05,
+  "seed": 6828303,
+  "epochs": 10,
+  "patience": 3,
+  "batch_size": 16,
+  "max_len": 256,
+  "warmup": 0.1,
+  "weight_decay": 0.01,
+  "max_train": null,
+  "max_dev": null,
+  "predict_test": true,
+  "no_amp": false,
+  "out_dir": "runs/final",
+  "force": false
+ },
+ "hf_model": "google-bert/bert-base-cased",
+ "model_commit": null,
+ "versions": {
+  "python": "3.12.3",
+  "torch": "2.8.0+cu128",
+  "transformers": "5.21.0",
+  "numpy": "2.1.2"
+ },
+ "device": "NVIDIA GeForce RTX 4090",
+ "amp": "torch.bfloat16",
+ "time": "2026-10-28 19:00:54",
+ "seconds": 180.0,
+ "truncated_sentences": {
+  "train": 35,
+  "dev": 6
+ },
+ "n_train": 4800,
+ "n_dev": 3174,
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.3217,
+   "dev_exact_f1": 0.3483,
+   "dev_partial_f1": 0.7196,
+   "seconds": 28.6
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.1208,
+   "dev_exact_f1": 0.4584,
+   "dev_partial_f1": 0.7705,
+   "seconds": 54.1
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.0619,
+   "dev_exact_f1": 0.4955,
+   "dev_partial_f1": 0.7667,
+   "seconds": 78.8
+  },
+  {
+   "epoch": 4,
+   "train_loss": 0.034,
+   "dev_exact_f1": 0.5098,
+   "dev_partial_f1": 0.7758,
+   "seconds": 103.4
+  },
+  {
+   "epoch": 5,
+   "train_loss": 0.0214,
+   "dev_exact_f1": 0.5049,
+   "dev_partial_f1": 0.7773,
+   "seconds": 127.7
+  },
+  {
+   "epoch": 6,
+   "train_loss": 0.0116,
+   "dev_exact_f1": 0.5083,
+   "dev_partial_f1": 0.7792,
+   "seconds": 152.4
+  },
+  {
+   "epoch": 7,
+   "train_loss": 0.0055,
+   "dev_exact_f1": 0.5016,
+   "dev_partial_f1": 0.7786,
+   "seconds": 177.0
+  }
+ ],
+ "best_epoch": 4,
+ "dev": {
+  "all": {
+   "n_gold": 1070,
+   "n_pred": 1272,
+   "tp_exact": 597,
+   "exact_p": 0.4693396226415094,
+   "exact_r": 0.5579439252336449,
+   "exact_f1": 0.5098206660973527,
+   "partial_p": 0.7334905660377359,
+   "partial_r": 0.8233644859813084,
+   "partial_f1": 0.7758334112023831
+  },
+  "house": {
+   "n_gold": 525,
+   "n_pred": 617,
+   "tp_exact": 295,
+   "exact_p": 0.47811993517017826,
+   "exact_r": 0.5619047619047619,
+   "exact_f1": 0.5166374781085813,
+   "partial_p": 0.7277147487844409,
+   "partial_r": 0.8114285714285714,
+   "partial_f1": 0.7672950676639249
+  },
+  "tech": {
+   "n_gold": 545,
+   "n_pred": 655,
+   "tp_exact": 302,
+   "exact_p": 0.46106870229007635,
+   "exact_r": 0.5541284403669725,
+   "exact_f1": 0.5033333333333333,
+   "partial_p": 0.7389312977099237,
+   "partial_r": 0.8348623853211009,
+   "partial_f1": 0.783973086747181
+  }
+ },
+ "test": {
+  "all": {
+   "n_gold": 1091,
+   "n_pred": 1171,
+   "tp_exact": 535,
+   "exact_p": 0.4568744662681469,
+   "exact_r": 0.4903758020164986,
+   "exact_f1": 0.4730327144120247,
+   "partial_p": 0.7344150298889838,
+   "partial_r": 0.7901008249312558,
+   "partial_f1": 0.7612409134644513
+  },
+  "house": {
+   "n_gold": 651,
+   "n_pred": 686,
+   "tp_exact": 314,
+   "exact_p": 0.4577259475218659,
+   "exact_r": 0.4823348694316436,
+   "exact_f1": 0.4697083021690352,
+   "partial_p": 0.7536443148688047,
+   "partial_r": 0.7880184331797235,
+   "partial_f1": 0.7704481579119372
+  },
+  "tech": {
+   "n_gold": 440,
+   "n_pred": 485,
+   "tp_exact": 221,
+   "exact_p": 0.4556701030927835,
+   "exact_r": 0.5022727272727273,
+   "exact_f1": 0.47783783783783784,
+   "partial_p": 0.7072164948453609,
+   "partial_r": 0.7931818181818182,
+   "partial_f1": 0.7477364648562551
+  }
+ },
+ "truncated_sentences_test": 0
+}

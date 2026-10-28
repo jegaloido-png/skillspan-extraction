@@ -1,0 +1,183 @@
+{
+ "command": "python src/03_train_bert.py --model bert --layer knowledge --lr 5e-5 --seed 4213916 --epochs 10 --predict_test --out_dir runs/final",
+ "config": {
+  "model": "bert",
+  "layer": "knowledge",
+  "lr": 5e-05,
+  "seed": 4213916,
+  "epochs": 10,
+  "patience": 3,
+  "batch_size": 16,
+  "max_len": 256,
+  "warmup": 0.1,
+  "weight_decay": 0.01,
+  "max_train": null,
+  "max_dev": null,
+  "predict_test": true,
+  "no_amp": false,
+  "out_dir": "runs/final",
+  "force": false
+ },
+ "hf_model": "google-bert/bert-base-cased",
+ "model_commit": null,
+ "versions": {
+  "python": "3.12.3",
+  "torch": "2.8.0+cu128",
+  "transformers": "5.21.0",
+  "numpy": "2.1.2"
+ },
+ "device": "NVIDIA GeForce RTX 4090",
+ "amp": "torch.bfloat16",
+ "time": "2026-10-28 18:49:34",
+ "seconds": 247.6,
+ "truncated_sentences": {
+  "train": 35,
+  "dev": 6
+ },
+ "n_train": 4800,
+ "n_dev": 3174,
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.2225,
+   "dev_exact_f1": 0.5135,
+   "dev_partial_f1": 0.7433,
+   "seconds": 26.0
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.0718,
+   "dev_exact_f1": 0.571,
+   "dev_partial_f1": 0.7656,
+   "seconds": 49.2
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.0345,
+   "dev_exact_f1": 0.5692,
+   "dev_partial_f1": 0.7802,
+   "seconds": 73.8
+  },
+  {
+   "epoch": 4,
+   "train_loss": 0.0169,
+   "dev_exact_f1": 0.5802,
+   "dev_partial_f1": 0.7816,
+   "seconds": 97.9
+  },
+  {
+   "epoch": 5,
+   "train_loss": 0.012,
+   "dev_exact_f1": 0.6019,
+   "dev_partial_f1": 0.8045,
+   "seconds": 122.8
+  },
+  {
+   "epoch": 6,
+   "train_loss": 0.0062,
+   "dev_exact_f1": 0.604,
+   "dev_partial_f1": 0.7936,
+   "seconds": 146.7
+  },
+  {
+   "epoch": 7,
+   "train_loss": 0.0033,
+   "dev_exact_f1": 0.6046,
+   "dev_partial_f1": 0.7976,
+   "seconds": 170.8
+  },
+  {
+   "epoch": 8,
+   "train_loss": 0.0028,
+   "dev_exact_f1": 0.5962,
+   "dev_partial_f1": 0.7909,
+   "seconds": 195.1
+  },
+  {
+   "epoch": 9,
+   "train_loss": 0.0013,
+   "dev_exact_f1": 0.5992,
+   "dev_partial_f1": 0.7899,
+   "seconds": 219.8
+  },
+  {
+   "epoch": 10,
+   "train_loss": 0.001,
+   "dev_exact_f1": 0.5997,
+   "dev_partial_f1": 0.7938,
+   "seconds": 244.6
+  }
+ ],
+ "best_epoch": 7,
+ "dev": {
+  "all": {
+   "n_gold": 1093,
+   "n_pred": 1259,
+   "tp_exact": 711,
+   "exact_p": 0.5647339158061954,
+   "exact_r": 0.6505032021957914,
+   "exact_f1": 0.6045918367346939,
+   "partial_p": 0.7513899920571883,
+   "partial_r": 0.8499542543458372,
+   "partial_f1": 0.7976387611301382
+  },
+  "house": {
+   "n_gold": 287,
+   "n_pred": 329,
+   "tp_exact": 164,
+   "exact_p": 0.49848024316109424,
+   "exact_r": 0.5714285714285714,
+   "exact_f1": 0.5324675324675324,
+   "partial_p": 0.6778115501519757,
+   "partial_r": 0.7560975609756098,
+   "partial_f1": 0.7148174956054182
+  },
+  "tech": {
+   "n_gold": 806,
+   "n_pred": 930,
+   "tp_exact": 547,
+   "exact_p": 0.5881720430107527,
+   "exact_r": 0.6786600496277916,
+   "exact_f1": 0.630184331797235,
+   "partial_p": 0.7774193548387097,
+   "partial_r": 0.8833746898263027,
+   "partial_f1": 0.8270171532125524
+  }
+ },
+ "test": {
+  "all": {
+   "n_gold": 1174,
+   "n_pred": 1300,
+   "tp_exact": 796,
+   "exact_p": 0.6123076923076923,
+   "exact_r": 0.6780238500851788,
+   "exact_f1": 0.6434923201293452,
+   "partial_p": 0.7723076923076924,
+   "partial_r": 0.862862010221465,
+   "partial_f1": 0.8150774404190422
+  },
+  "house": {
+   "n_gold": 368,
+   "n_pred": 442,
+   "tp_exact": 223,
+   "exact_p": 0.504524886877828,
+   "exact_r": 0.6059782608695652,
+   "exact_f1": 0.5506172839506173,
+   "partial_p": 0.6561085972850679,
+   "partial_r": 0.8152173913043478,
+   "partial_f1": 0.7270600033428046
+  },
+  "tech": {
+   "n_gold": 806,
+   "n_pred": 858,
+   "tp_exact": 573,
+   "exact_p": 0.6678321678321678,
+   "exact_r": 0.7109181141439206,
+   "exact_f1": 0.688701923076923,
+   "partial_p": 0.8321678321678322,
+   "partial_r": 0.8846153846153846,
+   "partial_f1": 0.8575904746984176
+  }
+ },
+ "truncated_sentences_test": 0
+}

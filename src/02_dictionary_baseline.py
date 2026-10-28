@@ -147,5 +147,52 @@ def main():
     (ROOT / "runs" / "dictionary_dev_meta.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")
 
 
+def spans_to_tags(n_tokens, spans):
+    tags = ["O"] * n_tokens
+    for s, e in spans:
+        tags[s] = "B"
+        for i in range(s + 1, e):
+            tags[i] = "I"
+    return tags
+
+
+def test_main():
+    """FINAL evaluation on TEST with the settings already chosen on dev (read from the dev grid).
+
+    Two versions per layer: 'tuned' (best dev F1) and 'pure' (min_precision 0, best case on dev).
+    Saves word-level BIO predictions in the same format as the BERT runs, for the error analysis.
+    """
+    t0 = time.time()
+    train, test = load_split("train"), load_split("test")
+    grid = pd.read_csv(ROOT / "results" / "dictionary_dev.csv")
+    out_dir = ROOT / "runs" / "dictionary"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for layer, key in TAG_KEYS.items():
+        g = grid[grid.layer == layer]
+        pure_g = g[g.min_precision == 0]
+        for version, sel in (("tuned", g.loc[g.exact_f1.idxmax()]), ("pure", pure_g.loc[pure_g.exact_f1.idxmax()])):
+            case, th = sel["case"], float(sel["min_precision"])
+            d = build_dictionary(train, layer, case, th)
+            check_no_test_leak(train, test, layer, case, d)
+            pred = predict(test, d, case)
+            (out_dir / f"test_pred_{layer}_{version}.json").write_text(
+                json.dumps([spans_to_tags(len(r["tokens"]), p) for r, p in zip(test, pred)]), encoding="utf-8")
+            for source in ("all", "house", "tech"):
+                idx = [i for i, r in enumerate(test) if source == "all" or r["source"] == source]
+                m = evaluate_spans([bio_to_spans(test[i][key]) for i in idx], [pred[i] for i in idx])
+                rows.append({"system": f"dictionary_{version}", "layer": layer, "source": source, "case": case,
+                             "min_precision": th, "dict_size": len(d), **m})
+    pd.DataFrame(rows).round(4).to_csv(ROOT / "results" / "dictionary_test.csv", index=False)
+    meta = {"command": "python src/02_dictionary_baseline.py --test", "time": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "seconds": round(time.time() - t0, 1), "settings_from": "results/dictionary_dev.csv (dev exact F1)"}
+    (ROOT / "runs" / "dictionary_test_meta.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")
+    print(pd.DataFrame(rows).query("source == 'all'")[["system", "layer", "case", "min_precision", "dict_size", "exact_p",
+                                                      "exact_r", "exact_f1", "partial_f1"]].round(4).to_string(index=False))
+
+
 if __name__ == "__main__":
-    main()
+    if "--test" in sys.argv:
+        test_main()
+    else:
+        main()

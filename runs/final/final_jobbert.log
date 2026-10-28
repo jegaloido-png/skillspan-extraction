@@ -1,0 +1,11 @@
+[done] jobbert_skill_lr5e-05_seed3477689: best epoch 9, dev exact F1 0.5587, 231.4s
+[done] jobbert_knowledge_lr5e-05_seed3477689: best epoch 10, dev exact F1 0.6366, 246.1s
+[done] jobbert_skill_lr5e-05_seed4213916: best epoch 9, dev exact F1 0.5508, 253.8s
+[done] jobbert_knowledge_lr5e-05_seed4213916: best epoch 6, dev exact F1 0.6419, 218.8s
+[done] jobbert_skill_lr5e-05_seed8749520: best epoch 9, dev exact F1 0.5694, 252.6s
+[done] jobbert_knowledge_lr5e-05_seed8749520: best epoch 5, dev exact F1 0.6351, 195.4s
+[done] jobbert_skill_lr5e-05_seed6828303: best epoch 9, dev exact F1 0.5465, 242.9s
+[done] jobbert_knowledge_lr5e-05_seed6828303: best epoch 5, dev exact F1 0.6124, 186.9s
+[done] jobbert_skill_lr5e-05_seed9364029: best epoch 10, dev exact F1 0.5459, 240.5s
+[done] jobbert_knowledge_lr5e-05_seed9364029: best epoch 6, dev exact F1 0.6460, 222.1s
+ALL_DONE_jobbert

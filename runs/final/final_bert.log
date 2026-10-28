@@ -1,0 +1,11 @@
+[done] bert_skill_lr5e-05_seed3477689: best epoch 9, dev exact F1 0.5136, 234.3s
+[done] bert_knowledge_lr5e-05_seed3477689: best epoch 10, dev exact F1 0.5968, 244.6s
+[done] bert_skill_lr5e-05_seed4213916: best epoch 5, dev exact F1 0.5117, 206.3s
+[done] bert_knowledge_lr5e-05_seed4213916: best epoch 7, dev exact F1 0.6046, 247.6s
+[done] bert_skill_lr5e-05_seed8749520: best epoch 9, dev exact F1 0.5193, 242.0s
+[done] bert_knowledge_lr5e-05_seed8749520: best epoch 10, dev exact F1 0.6149, 246.3s
+[done] bert_skill_lr5e-05_seed6828303: best epoch 4, dev exact F1 0.5098, 180.0s
+[done] bert_knowledge_lr5e-05_seed6828303: best epoch 5, dev exact F1 0.6014, 185.2s
+[done] bert_skill_lr5e-05_seed9364029: best epoch 8, dev exact F1 0.5292, 233.1s
+[done] bert_knowledge_lr5e-05_seed9364029: best epoch 7, dev exact F1 0.5910, 251.4s
+ALL_DONE_bert
