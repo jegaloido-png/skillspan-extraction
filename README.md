@@ -73,7 +73,7 @@ A run whose `metrics.json` already exists is skipped, so interrupted groups can 
 - Reference: Mike Zhang, Kristian Nørgaard Jensen, Sif Dam Sonniks, Barbara Plank. *SkillSpan: Hard and Soft Skill Extraction from English Job Postings.* NAACL 2022.
 
 ## Limitations
-- Skill/Knowledge are the dataset's two layers; they only approximate the "technical vs interpersonal" distinction of the project text.
+- Skill/Knowledge are the dataset's two layers. Following the SkillSpan paper (Zhang et al., 2022, Section 3, based on ESCO), *Knowledge* components are what is usually called hard skills (e.g. a programming language), while *Skill* components are the ability to apply knowledge to tasks and include soft skills (ESCO "attitudes"). So the mapping to the project text's "technical vs interpersonal" skills is not one-to-one: Knowledge is roughly technical, Skill mixes applied and interpersonal skills.
 - The minimum annotation rate, the case handling, the training hyperparameters and the definition of partial match are our choices.
 - Annotation noise (inconsistent span boundaries) caps the achievable F1; train and test differ in sentence length for the `tech` source.
 - Some sentences are truncated at 256 sub-tokens.
