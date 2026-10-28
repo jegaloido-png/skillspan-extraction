@@ -1,0 +1,10 @@
+split,source,sentences,tokens,avg_sent_len,skill_spans,skill_avg_span_len,skill_sents_with_span,knowledge_spans,knowledge_avg_span_len,knowledge_sents_with_span
+train,house,1667,36968,22.18,984,4.24,405,781,2.15,289
+train,tech,3133,56485,18.03,1237,4.77,596,2188,1.78,647
+train,all,4800,93453,19.47,2221,4.53,1001,2969,1.87,936
+dev,house,1018,19156,18.82,525,4.44,275,287,2.27,131
+dev,tech,2156,20901,9.69,545,4.66,328,806,1.68,322
+dev,all,3174,40057,12.62,1070,4.55,603,1093,1.84,453
+test,house,1283,22573,17.59,651,3.79,317,368,1.9,167
+test,tech,2286,20213,8.84,440,4.0,267,806,1.72,345
+test,all,3569,42786,11.99,1091,3.87,584,1174,1.78,512

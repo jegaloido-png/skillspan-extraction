@@ -1,0 +1,6 @@
+# Versions pinned to what was tested. torch is NOT pinned here: on the GPU pod we use the
+# CUDA build that ships with the Runpod PyTorch image and record its version in every run's metrics.json.
+transformers==5.21.0
+numpy
+pandas==3.0.0
+tabulate
