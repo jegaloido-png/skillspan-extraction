@@ -17,6 +17,7 @@ src/summarize_lr_search.py     dev table of the learning-rate search
 data/                          SkillSpan files copied unchanged (see data/SOURCE.txt, data/LICENSE_SkillSpan)
 runs/                          per-run outputs (metrics.json, predictions)
 results/                       CSV/Markdown tables and error examples
+report/                        the written report (report.docx, report.pdf) and the scripts that build its figures and text from results/
 ```
 
 ## Install and run
@@ -95,7 +96,7 @@ Test set, all sources, span-level micro F1. BERT-base and JobBERT: mean ± sampl
 
 What the numbers show:
 - Both token-classification models are far above the dictionary baseline (Skill 0.161 to 0.518, Knowledge 0.508 to 0.673 for JobBERT vs. the tuned dictionary).
-- JobBERT is above BERT-base in both layers (Skill +0.040, Knowledge +0.022), as it was on dev. No significance test was run; the Skill gap is much larger than the standard deviation, the Knowledge gap is about two standard deviations.
+- JobBERT is above BERT-base in both layers (Skill +0.040, Knowledge +0.021), as it was on dev. No significance test was run; the Skill gap is much larger than the standard deviation, the Knowledge gap is about two standard deviations.
 - Skill is harder than Knowledge for every system. The gap between exact and partial F1 is large for the models (Skill about 0.52 vs 0.80), so much of the error concerns span boundaries.
 - Per source (exact F1, JobBERT): Skill house 0.526 / tech 0.507; Knowledge house 0.594 / tech 0.710.
 
