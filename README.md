@@ -12,6 +12,7 @@ src/02_dictionary_baseline.py  dictionary baseline (train only), dev tuning; --t
 src/03_train_bert.py           fine-tuning for BIO token classification (one run = model, layer, lr, seed)
 src/04_evaluate.py             span metrics (exact + partial) and the test report (mean/std over seeds)
 src/05_error_analysis.py       boundary errors, spurious/missed spans, seen/unseen recall, 24 examples
+src/06_extra_checks.py         checks on stored test predictions: per-gold boundary errors, I-tag rule, t-test and bootstrap, span length, duplicates
 src/run_lr_search.sh, run_lr_probe.sh, run_final.sh   the three groups of GPU runs
 src/summarize_lr_search.py     dev table of the learning-rate search
 data/                          SkillSpan files copied unchanged (see data/SOURCE.txt, data/LICENSE_SkillSpan)
@@ -34,6 +35,7 @@ bash src/run_final.sh bert; bash src/run_final.sh jobbert          # 20 final ru
 python src/02_dictionary_baseline.py --test    # dictionary on test, with the settings chosen on dev
 python src/04_evaluate.py                  # -> results/test_results_*.{csv,md}
 python src/05_error_analysis.py            # -> results/error_*.{csv,md}, recall_seen_unseen.csv
+python src/06_extra_checks.py              # -> results/extra_checks.csv (used by the report; needs scipy)
 ```
 A run whose `metrics.json` already exists is skipped, so interrupted groups can be resumed. Smoke test: `python src/03_train_bert.py --model distilbert --layer skill --max_train 500 --max_dev 300 --epochs 1`.
 

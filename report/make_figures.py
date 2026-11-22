@@ -13,11 +13,11 @@ OUT = Path(__file__).resolve().parent / "figures"
 OUT.mkdir(exist_ok=True)
 R = ROOT / "results"
 
-plt.rcParams.update({"font.size": 8.5, "axes.spines.top": False, "axes.spines.right": False,
-                     "axes.titlesize": 9.5, "axes.titleweight": "bold", "figure.dpi": 150})
+plt.rcParams.update({"font.size": 9.5, "axes.spines.top": False, "axes.spines.right": False,
+                     "axes.titlesize": 10.5, "axes.titleweight": "bold", "figure.dpi": 150})
 # Okabe-Ito colour-blind safe palette
 C = {"dictionary_pure": "#BBBBBB", "dictionary_tuned": "#7F7F7F", "bert": "#0072B2", "jobbert": "#D55E00"}
-NAMES = {"dictionary_pure": "Dictionary\n(no threshold)", "dictionary_tuned": "Dictionary\n(tuned on dev)",
+NAMES = {"dictionary_pure": "Dictionary\n(pure)", "dictionary_tuned": "Dictionary\n(tuned)",
          "bert": "BERT-base", "jobbert": "JobBERT"}
 ORDER = ["dictionary_pure", "dictionary_tuned", "bert", "jobbert"]
 LAYERS = [("skill", "Skill"), ("knowledge", "Knowledge")]
@@ -41,13 +41,13 @@ def fig_main():
                 ax.bar(x, r[m + "_mean"], w, color=C[s], alpha=alpha, hatch=hatch, edgecolor="white", linewidth=0.5,
                        yerr=err if err else None, capsize=2, error_kw={"elinewidth": 0.8})
                 ax.text(x, r[m + "_mean"] + (err or 0) + 0.012, f"{r[m + '_mean']:.2f}", ha="center", va="bottom",
-                        fontsize=7)
+                        fontsize=8)
             if s in ("bert", "jobbert"):
                 pts = runs[(runs.system == s) & (runs.layer == layer) & (runs.source == "all")].exact_f1
                 ax.scatter(np.full(len(pts), i - 0.5 * w) + np.linspace(-0.07, 0.07, len(pts)), pts, s=6,
                            color="black", zorder=3, linewidths=0)
         ax.set_xticks(range(len(ORDER)))
-        ax.set_xticklabels([NAMES[s] for s in ORDER], fontsize=6.6)
+        ax.set_xticklabels([NAMES[s] for s in ORDER], fontsize=8.2)
         ax.set_title(title)
         ax.set_ylim(0, 0.95)
         ax.grid(axis="y", alpha=0.25, linewidth=0.5)
@@ -55,7 +55,7 @@ def fig_main():
     axes[0].set_ylabel("F1 on test (micro, span level)")
     axes[1].legend(handles=[Patch(facecolor="#555", label="exact match"),
                             Patch(facecolor="#555", alpha=0.55, hatch="////", edgecolor="white", label="partial match")],
-                   loc="upper left", frameon=False, fontsize=7.5)
+                   loc="upper left", frameon=False, fontsize=8.5)
     fig.tight_layout()
     fig.savefig(OUT / "fig_main_results.png", dpi=300)
     plt.close(fig)
@@ -81,7 +81,7 @@ def fig_errors():
                 ax.barh(range(len(t)), v, left=left, color=colour, edgecolor="white", linewidth=0.5, label=label)
                 for y, (a, b) in enumerate(zip(left, v)):
                     if b > 0.06:
-                        ax.text(a + b / 2, y, f"{b * 100:.0f}", ha="center", va="center", fontsize=7, color="white")
+                        ax.text(a + b / 2, y, f"{b * 100:.0f}", ha="center", va="center", fontsize=8, color="white")
                 left += v
             ax.set_yticks(range(len(t)))
             ax.set_yticklabels([lab[s] for s in sysorder])
@@ -89,11 +89,11 @@ def fig_errors():
             ax.set_xlim(0, 1)
             ax.set_xticks([0, .25, .5, .75, 1])
             ax.set_xticklabels(["0", "25", "50", "75", "100"])
-            ax.set_title(f"{title}: share of {head} (%)", fontsize=8.5)
+            ax.set_title(f"{title}: share of {head} (%)", fontsize=9.5)
     for row in (0, 1):
         h, l = axes[row, 0].get_legend_handles_labels()
         axes[row, 0].legend(h, l, loc="upper left", bbox_to_anchor=(0.0, -0.17), ncol=len(h), frameon=False,
-                            fontsize=7, handlelength=1.2, columnspacing=1.0)
+                            fontsize=8, handlelength=1.2, columnspacing=1.0)
     fig.tight_layout(h_pad=2.2)
     fig.savefig(OUT / "fig_error_breakdown.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
@@ -111,7 +111,7 @@ def fig_seen_unseen():
             for j, col in enumerate(("seen_exact_recall", "unseen_exact_recall")):
                 x = j + (i - 1) * 0.26
                 ax.bar(x, d.loc[s, col], 0.24, color=colour[s], label=lab[s] if j == 0 else None)
-                ax.text(x, d.loc[s, col] + 0.015, f"{d.loc[s, col]:.2f}", ha="center", fontsize=7)
+                ax.text(x, d.loc[s, col] + 0.015, f"{d.loc[s, col]:.2f}", ha="center", fontsize=8)
         ax.set_xticks([0, 1])
         ax.set_xticklabels([f"seen in training\n(n = {n_seen:.0f})", f"not seen in training\n(n = {n_unseen:.0f})"])
         ax.set_ylim(0, 1.05)
@@ -119,7 +119,7 @@ def fig_seen_unseen():
         ax.grid(axis="y", alpha=0.25, linewidth=0.5)
         ax.set_axisbelow(True)
     axes[0].set_ylabel("exact recall on test")
-    axes[0].legend(frameon=False, fontsize=7.5, loc="upper right")
+    axes[0].legend(frameon=False, fontsize=8.5, loc="upper right")
     fig.tight_layout()
     fig.savefig(OUT / "fig_seen_unseen.png", dpi=300)
     plt.close(fig)
@@ -142,7 +142,7 @@ def fig_lr():
         ax.set_xlabel("learning rate")
         ax.grid(alpha=0.25, linewidth=0.5)
     axes[0].set_ylabel("dev exact F1 (1 seed)")
-    axes[0].legend(frameon=False, fontsize=7.5, loc="upper left")
+    axes[0].legend(frameon=False, fontsize=8.5, loc="upper left")
     fig.tight_layout()
     fig.savefig(OUT / "fig_lr_dev.png", dpi=300)
     plt.close(fig)
