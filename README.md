@@ -18,7 +18,7 @@ src/summarize_lr_search.py     dev table of the learning-rate search
 data/                          SkillSpan files copied unchanged (see data/SOURCE.txt, data/LICENSE_SkillSpan)
 runs/                          per-run outputs (metrics.json, predictions)
 results/                       CSV/Markdown tables and error examples
-report/                        the written report (report.docx, report.pdf) and the scripts that build its figures and text from results/
+report/                        the written report (Cornacchia_SkillSpan_Report.pdf, .docx) and the scripts that build its figures and text from results/
 ```
 
 ## Install and run

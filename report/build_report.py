@@ -1,4 +1,4 @@
-"""Builds report/report.docx from the tables in results/ and the figures in report/figures/.
+"""Builds report/Cornacchia_SkillSpan_Report.docx from the tables in results/ and the figures in report/figures/.
 
 Every number in the text is read from the CSV files, so the report cannot drift from the experiments.
 """
@@ -605,6 +605,6 @@ cp.author, cp.last_modified_by = "Giacomo Cornacchia", "Giacomo Cornacchia"
 cp.title = "Skill Extraction from Job Advertisements: A Dictionary Baseline versus BERT and JobBERT Token Labelling on SkillSpan"
 cp.comments, cp.keywords, cp.subject = "", "", "Computational Linguistics and Language-Based Interaction"
 
-out = HERE / "report.docx"
+out = HERE / "Cornacchia_SkillSpan_Report.docx"
 doc.save(out)
 print("saved", out)
