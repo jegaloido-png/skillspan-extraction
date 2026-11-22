@@ -5,3 +5,5 @@ __pycache__/
 *.safetensors
 .venv/
 submission/
+LOG_LAVORO.md
+WHAT_WE_DID.md

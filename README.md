@@ -3,7 +3,7 @@
 Exam project 4 of the Computational Linguistics course (project description: `exercises.pdf`, p. 4).
 Research question: how much does a token-labelling model improve over a dictionary-based approach in extracting skills from job advertisements?
 
-Everything reported in this repository comes from real runs; every run stores its command, seed, library versions and time (`runs/*/metrics.json`, `runs/*_meta.json`). A chronological work log is in `LOG_LAVORO.md` (Italian).
+Everything reported in this repository comes from real runs; every run stores its command, seed, library versions and time (`runs/*/metrics.json`, `runs/*_meta.json`).
 
 ## Repository layout
 ```
